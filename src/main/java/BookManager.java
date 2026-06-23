@@ -4,16 +4,15 @@ import java.util.List;
 public class BookManager {
     private List<Book> books;
 
-    public BookManager(List<Book>books){
-        this.books = books;
+    public BookManager(){
+        this.books = new ArrayList<Book>();
     }
 
     public void addBook(Book book){
         this.books.add(book);
-
     }
 
-    public List<Book> getBooks(){
+    public ArrayList<Book> getBooks(){
         return new ArrayList<Book>(this.books);
     }
 
@@ -34,7 +33,7 @@ public class BookManager {
         }
     }
 
-    public List<Book> getBooksInOrder(){
+    public ArrayList<Book> getBooksInOrder(){
         ArrayList<Book>sorted = sortBooks(this.books);
         return sorted;
     }

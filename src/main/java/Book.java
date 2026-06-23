@@ -1,8 +1,7 @@
-import java.util.Objects;
 
-public class Book implements Comparable<Book>{
+public class Book {
 
-    private String title;
+    private final String title;
 
     public Book(String title){
         this.title = title;
@@ -12,15 +11,4 @@ public class Book implements Comparable<Book>{
         return this.title;
     }
 
-    @Override
-    public int compareTo(Book o) {
-
-        if(o == null){
-            throw new NullPointerException(Message.E_NULL_COMPARE);
-        }
-        int compare = this.title.compare(o.title, this.title);
-
-        if(compare == 0)
-        return 0;
-    }
 }
