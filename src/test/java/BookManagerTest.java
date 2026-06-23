@@ -1,6 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -77,6 +78,9 @@ public class BookManagerTest {
         Book book01 = new Book("The cell");
         Book book02 = new Book("Collapse");
 
+        manager.addBook(book01);
+        manager.addBook(book02);
+
         assertTrue(manager.getBooks().size() == 2);
 
         manager.removeBookByTitle("Collapse");
@@ -113,5 +117,16 @@ public class BookManagerTest {
         assertEquals(book04, alphaNumericOrder.get(2));
         assertEquals(book01, alphaNumericOrder.get(3));
         assertEquals(book03, alphaNumericOrder.get(4));
+    }
+    @Test
+    void noDuplicatesAllowed(){
+        BookManager manager = new BookManager();
+        Book book01 = new Book("The cell");
+        Book book02 = new Book("The cell");
+
+        manager.addBook(book01);
+
+        assertThrows(IllegalArgumentException.class, () -> {manager.addBook(book02);});
+        assertThrows(IllegalArgumentException.class, () -> {manager.addBookInPosition(1, book02);});
     }
 }

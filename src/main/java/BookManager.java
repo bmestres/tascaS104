@@ -9,7 +9,11 @@ public class BookManager {
     }
 
     public void addBook(Book book){
-        this.books.add(book);
+        if(existsDuplicate(book)){
+            throw new IllegalArgumentException(Message.E_DUPLICATE);
+        }
+            this.books.add(book);
+
     }
 
     public ArrayList<Book> getBooks(){
@@ -21,6 +25,9 @@ public class BookManager {
     }
 
     public void addBookInPosition(int pos, Book book){
+        if(existsDuplicate(book)){
+            throw new IllegalArgumentException(Message.E_DUPLICATE);
+        }
         this.books.add(pos, book);
     }
 
@@ -55,7 +62,7 @@ public class BookManager {
         return sorted;
     }
 
-    private boolean findDuplicate(Book book){
+    private boolean existsDuplicate(Book book){
         boolean duplicate = false;
         int i = 0;
 
@@ -63,6 +70,7 @@ public class BookManager {
             if(this.books.get(i).getTitle().equalsIgnoreCase(book.getTitle())){
                 duplicate = true;
             }
+            i++;
         }
         return duplicate;
     }
