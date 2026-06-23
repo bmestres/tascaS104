@@ -54,4 +54,16 @@ public class BookManager {
     }
         return sorted;
     }
+
+    private boolean findDuplicate(Book book){
+        boolean duplicate = false;
+        int i = 0;
+
+        while(!duplicate && i < this.books.size()){
+            if(this.books.get(i).getTitle().equalsIgnoreCase(book.getTitle())){
+                duplicate = true;
+            }
+        }
+        return duplicate;
+    }
 }
