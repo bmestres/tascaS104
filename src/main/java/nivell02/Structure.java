@@ -1,10 +1,19 @@
 package nivell02;
 
+import java.util.ArrayList;
+
 public class Structure {
 
-    Integer number;
+    public static final int MAX_NUM = 4;
 
-    public Structure(Integer number){
+    private Integer number;
+    private ArrayList<Object> arr;
+
+    public Structure(){
+        this.arr = new ArrayList<Object>();
+    }
+
+    public void setInteger(Integer number){
         this.number = number;
     }
 
