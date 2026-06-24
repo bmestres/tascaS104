@@ -31,4 +31,12 @@ public class CalculateNIFTest {
         assertThrows(IllegalArgumentException.class, () -> {char testLetter = calculator.calculateLetter(number, correspondenceTable.getMap());});
     }
 
+    @ParameterizedTest
+    @ValueSource(ints = {100000000, 2147483647, 874673845})
+    void tooLargeValueThrowsException(int number){
+        NumLettersMap correspondenceTable = new NumLettersMap();
+        CalculateNIF calculator = new CalculateNIF();
+
+        assertThrows(IllegalArgumentException.class, () -> {char testLetter = calculator.calculateLetter(number, correspondenceTable.getMap());});
+    }
 }
