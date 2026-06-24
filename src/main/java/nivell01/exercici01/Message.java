@@ -1,4 +1,4 @@
-package exercici01;
+package nivell01.exercici01;
 
 public class Message {
 

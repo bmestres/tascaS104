@@ -1,6 +1,7 @@
-package exercici03;
+package nivell01.exercici03;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import nivell01.exercici03.Playlist;
 import org.junit.jupiter.api.Test;
 
 public class PlaylistTest {

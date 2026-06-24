@@ -1,5 +1,7 @@
-package exercici02;
+package nivell01.exercici02;
 
+import nivell01.exercici02.CalculateNIF;
+import nivell01.exercici02.NumLettersMap;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;

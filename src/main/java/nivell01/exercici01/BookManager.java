@@ -1,4 +1,4 @@
-package exercici01;
+package nivell01.exercici01;
 
 import java.util.ArrayList;
 import java.util.List;
