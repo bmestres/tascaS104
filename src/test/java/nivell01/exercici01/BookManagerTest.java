@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import nivell01.exercici01.Book;
-import nivell01.exercici01.BookManager;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
