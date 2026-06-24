@@ -64,11 +64,96 @@ public class TestStructure {
     }
 
     @Test
-    void differentArrays() {
+    void orderIsSameAsEntry(){
+        String one = "One";
+        int two = 2;
+        Structure three = new Structure();
+        double four = 4.4;
+        boolean five = false;
 
-        int[] array01 = {1, 2, 3, 4};
-        int[] array02 = {1, 2, 3, 5};
+        Structure struct = new Structure();
 
-        assertThat(array01).isNotEqualTo(array02);
+        struct.addToArr(one);
+        struct.addToArr(two);
+        struct.addToArr(three);
+        struct.addToArr(four);
+        struct.addToArr(five);
+
+        assertThat(struct.getArr()).containsExactlyInAnyOrder(one, two, three, four, five);
     }
+    @Test
+    void containsAllElementsInAnyOrder(){
+        String one = "One";
+        int two = 2;
+        Structure three = new Structure();
+        double four = 4.4;
+        boolean five = false;
+
+        Structure struct = new Structure();
+
+        struct.addToArr(one);
+        struct.addToArr(two);
+        struct.addToArr(three);
+        struct.addToArr(four);
+        struct.addToArr(five);
+
+        assertThat(struct.getArr()).containsExactly(one, two, three, four, five);
+    }
+
+    @Test
+    void anElementOnlyExistsOnce(){
+        String one = "One";
+        int two = 2;
+        Structure three = new Structure();
+        double four = 4.4;
+        boolean five = false;
+
+        Structure struct = new Structure();
+
+        struct.addToArr(one);
+        struct.addToArr(two);
+        struct.addToArr(three);
+        struct.addToArr(four);
+        struct.addToArr(five);
+
+        assertThat(struct.getArr()).containsOnlyOnce(four);
+    }
+
+    @Test
+    void oneElementNotExists(){
+        String one = "One";
+        int two = 2;
+        Structure three = new Structure();
+        double four = 4.4;
+        boolean five = false;
+
+        Structure struct = new Structure();
+
+        struct.addToArr(one);
+        struct.addToArr(two);
+
+        struct.addToArr(four);
+        struct.addToArr(five);
+
+        assertThat(struct.getArr()).doesNotContain(three);
+    }
+
+    @Test
+    void containsOneOfTheKey(){
+        Structure struct = new Structure();
+
+        struct.getMap().put(13, "Yellow");
+        struct.getMap().put(82, "Red");
+        struct.getMap().put(5, "Green");
+        struct.getMap().put(29, "Blue");
+
+        assertThat(struct.getMap()).containsKey(82);
+    }
+
+    @Test
+    void throwsIndexOutOfBoundsException(){
+
+
+    }
+
 }
