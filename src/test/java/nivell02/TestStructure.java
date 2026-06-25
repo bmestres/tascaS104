@@ -2,7 +2,12 @@ package nivell02;
 
 import static nivell02.Structure.MAX_NUM;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+import net.bytebuddy.dynamic.DynamicType;
 import org.junit.jupiter.api.Test;
+
+import java.util.Optional;
 
 public class TestStructure {
 
@@ -152,8 +157,15 @@ public class TestStructure {
 
     @Test
     void throwsIndexOutOfBoundsException(){
+        int[]arr = {1,2};
 
+        assertThatThrownBy(() -> {int outOfBounds = arr[2];}).isInstanceOf(IndexOutOfBoundsException.class);
 
     }
 
+    @Test
+    void optionalIsEmpty(){
+        Optional<String> opt = Optional.empty();
+        assertThat(opt).isEmpty();
+    }
 }
